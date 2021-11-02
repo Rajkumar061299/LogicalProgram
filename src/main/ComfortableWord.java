@@ -1,29 +1,34 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class ComfortableWord {
 
 	public static boolean isComfortableWord(String word) {
 
-		word.replaceAll("[qwertasdfgzxcvb]", "r");
-		word.replaceAll("[^qwertasdfgzxcvb]", "l");
+		word = word.replaceAll("[qwertasdfgzxcvb]", "l");
 
-		System.out.println(word);
+		List<Boolean> flag = new ArrayList<>();
+
 		for (int i = 0; i < word.length(); i++) {
 
-			if ((i % 2 == 0) && (String.valueOf(word.charAt(i)).equals("r"))==true) {
-				return true;
-			} else if ((i % 2 != 0) && (String.valueOf(word.charAt(i)).equals("l")==true)) {
-				return true;
+			if ((i % 2 == 0) && (!String.valueOf(word.charAt(i)).equals("l")) == true) {
+				flag.add(true);
+			} else if ((i % 2 != 0) && (String.valueOf(word.charAt(i)).equals("l") == true)) {
+				flag.add(true);
 			}
 		}
 
-		return false;
+		return flag.stream().allMatch(i -> i == true);
 	}
 
 	public static void main(String[] args) {
 
 		System.out.println(isComfortableWord("yams"));
 
+		System.out.println(isComfortableWord("laksjdhg"));
 	}
 
 }
