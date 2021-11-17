@@ -4,9 +4,10 @@ public class AlphabetWarAirstrike {
 
 	public static String alphabetWar(String fight) {
 		int total = 0;
-		for (char c : fight.replaceAll("\\w?\\*\\w?", "").toCharArray()) {
-			System.out.println(c);
-			total += "zdqm".indexOf(c) - "sbpw".indexOf(c);}
+
+		for (char c : fight.replaceAll("\\w?\\*\\w?", "").toCharArray())
+			total += "zdqm".indexOf(c) - "sbpw".indexOf(c);
+
 		return total == 0 ? "Let's fight again!" : String.format("%s side wins!", total < 0 ? "Left" : "Right");
 	}
 
