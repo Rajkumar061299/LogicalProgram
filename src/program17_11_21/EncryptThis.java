@@ -8,12 +8,11 @@ public class EncryptThis {
 
 	public static String encryptThis(String text) {
 
-List<String> list =		 Arrays.stream(text.split(" "))
-				.sorted((s1,s2) -> (s1.substring(1)).compareTo(s2.substring(1)))
-				.collect(Collectors.toList());
-				
-	list.forEach(System.out :: println);
-	return "";
+		List<String> list = Arrays.stream(text.split(" "))
+				.sorted((s1, s2) -> (s1.substring(1)).compareTo(s2.substring(1))).collect(Collectors.toList());
+
+		list.forEach(System.out::println);
+		return "";
 
 //				map(i -> (int) i.charAt(0) + (i.substring(1)))
 //
